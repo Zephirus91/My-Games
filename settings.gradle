@@ -1,0 +1,3 @@
+rootProject.name = 'MyGames'
+include 'com.kodilla.blackjack'
+
