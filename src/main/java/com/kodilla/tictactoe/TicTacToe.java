@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
-    static HashSet<Integer> urSet = new HashSet<Integer>();
-    static HashSet<Integer> compSet = new HashSet<Integer>();
+    static HashSet<Integer> urSet = new HashSet<>();
+    static HashSet<Integer> compSet = new HashSet<>();
 
-    public static void main (String args[]) {
+    public static void main (String[] args) {
 
         char [][] gBoard ={
                 {' ', '|', ' ', '|', ' '},
@@ -29,7 +29,7 @@ public class TicTacToe {
                 System.out.print("Retry, enter values from 1 to 9:");
                 userPos = in.nextInt();
             }
-            pHolder(gBoard, userPos, "You");
+            pHolder(gBoard, userPos, "You"); //position holder
 
             String result = checkWinner();
             if (result.length()>0) {

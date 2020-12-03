@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -14,8 +15,8 @@ import javafx.stage.Stage;
 public class GameBoard extends Application {
 
     private Image imageback = new Image("file:src/main/resources/TicTacToe/grass.jpg");
-    private Image letterX = new Image("file:src/main/resources/TicTacToe/letter x.png");
-    private Image letterO = new Image("file:src/main/resources/TicTacToe/letter o.png");
+    private Image letterX = new Image("file:src/main/resources/TicTacToe/letter xx.png");
+    private Image letterO = new Image("file:src/main/resources/TicTacToe/letter oo.png");
     private FlowPane symbols = new FlowPane(Orientation.HORIZONTAL);
 
     public static void main(String[] args) {
@@ -34,12 +35,12 @@ public class GameBoard extends Application {
         grid.setHgap(5.5);
         grid.setVgap(5.5);
         grid.setBackground(background);
-        grid.getRowConstraints().add(new RowConstraints(0));
-        grid.getRowConstraints().add(new RowConstraints(265));
-        grid.getRowConstraints().add(new RowConstraints(320));
-        grid.getColumnConstraints().add(new ColumnConstraints(0));
+        grid.getRowConstraints().add(new RowConstraints(-30));
+        grid.getRowConstraints().add(new RowConstraints(700));
+        grid.getRowConstraints().add(new RowConstraints(-100));
+        grid.getColumnConstraints().add(new ColumnConstraints(-500));
         grid.getColumnConstraints().add(new ColumnConstraints(450));
-        grid.getColumnConstraints().add(new ColumnConstraints(450));
+        grid.getColumnConstraints().add(new ColumnConstraints(470));
 
 
         ImageView img1 = new ImageView(letterX);
@@ -74,8 +75,25 @@ public class GameBoard extends Application {
 
         Scene scene = new Scene(grid, 1380, 900, Color.BLACK);
 
+        GameLogic gameLogic = new GameLogic();
+        GameController gameController = new GameController(gameLogic, grid);
+
+        grid.setOnMouseClicked(event -> {
+            System.out.println(event.getX());
+            System.out.println(event.getY());
+            int x = (int) (event.getX()/460);
+            int y = (int) (event.getY()/300);
+            System.out.println(x);
+            System.out.println(y);
+            gameController.click(x,y);
+            gameController.showOnBoard();
+        });
+
+
+
         primaryStage.setTitle("Tic Tac Toe");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 }
+
