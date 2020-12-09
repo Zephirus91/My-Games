@@ -6,8 +6,8 @@ import javafx.scene.layout.GridPane;
 
 
 public class GameController {
-    private Image letterX = new Image("file:src/main/resources/TicTacToe/letter xx.png");
-    private Image letterO = new Image("file:src/main/resources/TicTacToe/letter oo.png");
+    private Image letterX = new Image("file:src/main/resources/TicTacToe/xxx.png");
+    private Image letterO = new Image("file:src/main/resources/TicTacToe/ooo.png");
     private GameLogic gameLogic;
     private GridPane grid;
 
@@ -27,10 +27,10 @@ public class GameController {
             for (int col = 0; col < 3; col++) {
                 String figure = gameLogic.getFigure(col, row);
                 ImageView imageView = null;
-                if (figure.equals("X")) {
+                if (figure.equals("x")) {
                     imageView = new ImageView(letterX);
 
-                } else if (figure.equals("O")) {
+                } else if (figure.equals("o")) {
                     imageView = new ImageView(letterO);
 
                 }
