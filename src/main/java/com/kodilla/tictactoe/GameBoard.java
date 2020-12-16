@@ -60,6 +60,7 @@ public class GameBoard extends Application {
         primaryStage.setTitle("Tic Tac Toe");
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
 }
 

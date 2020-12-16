@@ -6,8 +6,8 @@ import javafx.scene.layout.GridPane;
 
 
 public class GameController {
-    private Image letterX = new Image("file:src/main/resources/TicTacToe/xxx.png");
-    private Image letterO = new Image("file:src/main/resources/TicTacToe/ooo.png");
+    private Image letterX = new Image("file:src/main/resources/TicTacToe/x.png");
+    private Image letterO = new Image("file:src/main/resources/TicTacToe/o.png");
     private GameLogic gameLogic;
     private GridPane grid;
 
@@ -19,6 +19,9 @@ public class GameController {
 
     public void click(int x, int y) {
         gameLogic.click(x,y);
+        if (!gameLogic.checkWinner().equals(" ")) {
+            System.out.println("U WON");
+        }
     }
 
     public void showOnBoard() {
