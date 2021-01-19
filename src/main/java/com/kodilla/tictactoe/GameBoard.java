@@ -41,7 +41,6 @@ public class GameBoard extends Application {
 
         GameLogic gameLogic = new GameLogic();
         GameController gameController = new GameController(gameLogic, grid, primaryStage);
-
         grid.setOnMouseClicked(event -> {
             System.out.println(event.getX());
             System.out.println(event.getY());
