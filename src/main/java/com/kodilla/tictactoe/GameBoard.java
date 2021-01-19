@@ -2,11 +2,9 @@ package com.kodilla.tictactoe;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -42,7 +40,7 @@ public class GameBoard extends Application {
         Scene scene = new Scene(grid, 960, 626, Color.BLACK);
 
         GameLogic gameLogic = new GameLogic();
-        GameController gameController = new GameController(gameLogic, grid);
+        GameController gameController = new GameController(gameLogic, grid, primaryStage);
 
         grid.setOnMouseClicked(event -> {
             System.out.println(event.getX());
